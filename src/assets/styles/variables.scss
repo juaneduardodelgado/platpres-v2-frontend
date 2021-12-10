@@ -1,0 +1,22 @@
+$primary-color: #72EDDB;
+$secondary-color: #C4DD4B;
+$dark-color: #1E192F;
+$light-color: #FAFAFA;
+$gray-color: #666666;
+$complementary-color: #3A5081;
+$error-color: #F50647;
+$success-color: #00CB96;
+$warning-color: #F3AB02;
+$action-color: #1D83EF;
+
+/*
+Common breakpoints are 320px — 480px for mobile devices,
+481px — 768px for iPads & tablets,
+769px — 1024px for small screens like laptop,
+1025px — 1200px for large screens like Desktops,
+and 1201px and above for extra large screens like TV.
+*/
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1200px;

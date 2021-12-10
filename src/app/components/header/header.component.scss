@@ -1,0 +1,18 @@
+@import '../../../assets/styles/variables';
+
+.header {
+  height: 70px;
+  padding-left: 138px;
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .header {
+    padding-left: 68px;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .header {
+    padding-left: 48px;
+  }
+}

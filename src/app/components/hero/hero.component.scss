@@ -1,0 +1,67 @@
+
+@import '../../../assets/styles/variables';
+
+:host {
+  display: block;
+  height: 600px;
+}
+
+.hero {
+  height: 100%;
+  display: block;
+  position: relative;
+
+  &__background {
+    display: block;
+    border-radius: 10px;
+    background-image: url('../../../assets/hero-image.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+  }
+
+  &__content {
+    border-radius: 10px;
+    background-color: rgba($primary-color, 0.92);
+    width: 35%;
+    min-height: calc(100% - 40px);
+    float: right;
+    position: relative;
+    margin: 20px;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    padding: 80px 32px;
+  }
+
+  &__description-block {
+    padding-right: 30px;
+  }
+}
+
+
+@media (max-width: $breakpoint-tablet) {
+  .hero {
+    &__content {
+      width: 50%;
+      margin: 20px;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .hero {
+    &__content {
+      float: none;
+      width: calc(100% - 20px);
+      min-height: 50%;
+      top: calc(50% - 10px);
+      margin: 10px;
+      padding: 28px 21px;
+    }
+  }
+}
