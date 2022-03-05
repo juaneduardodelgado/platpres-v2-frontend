@@ -1,7 +1,11 @@
 @import '../../../assets/styles/variables';
 
+:host {
+  padding-top: 24px;
+  box-sizing: border-box;
+}
+
 .header {
-  height: 70px;
   padding-left: 138px;
 }
 

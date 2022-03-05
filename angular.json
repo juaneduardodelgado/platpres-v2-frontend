@@ -35,7 +35,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/typeface-inter/index.css"
+              "node_modules/typeface-inter/inter.css"
             ],
             "scripts": []
           },
@@ -72,7 +72,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "platpres-v2-frontend:build"
+            "browserTarget": "platpres-v2-frontend:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {

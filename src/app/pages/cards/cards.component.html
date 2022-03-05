@@ -1,0 +1,44 @@
+<h3>Tus tarjetas</h3>
+
+<div class="page-container">
+    <div class="tabs-container">
+        <div class="title" [ngClass]="{'active': cardsEnabled}"
+            (click)="cardsEnabled = !cardsEnabled">Tarjetas</div>
+        <div class="title" [ngClass]="{'active': !cardsEnabled}"
+        (click)="cardsEnabled = !cardsEnabled">Presentaciones</div>
+    </div>
+    <div class="row cols-1 cols-3-xl" *ngIf="cardsEnabled">
+        <app-white-card *ngFor="let card of cards$ | async">
+            <ng-template>
+                <app-pp-card [card]="card" [fullFg]="true" (click)="editCard(card)"></app-pp-card>
+                <!-- <h3>Tarjeta master</h3> -->
+                <div class="buttons-container">
+                    <a [routerLink]="'/app'" class="btn btn--tertiary btn--medium">
+                        Compartir
+                    </a>
+                </div>
+            </ng-template>
+        </app-white-card>
+        <app-white-card *ngFor="let card of cards">
+            <ng-template>
+                <div class="new-container">
+                    <div class="card__circle" [routerLink]="'/app/wizards/create-card'">
+                        <i class="fa fa-light fa-plus"></i>
+                    </div>
+                </div>
+            </ng-template>
+        </app-white-card>
+    </div>
+
+    <div class="row cols-1 cols-3-xl" *ngIf="!cardsEnabled">
+        <app-white-card *ngFor="let card of presentations">
+            <ng-template>
+                <div class="new-container">
+                    <div class="card__circle">
+                        <i class="fa fa-light fa-plus"></i>
+                    </div>
+                </div>
+            </ng-template>
+        </app-white-card>
+    </div>
+</div>

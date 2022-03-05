@@ -1,0 +1,14 @@
+<app-white-card>
+    <ng-template>
+        <div class="card__container">
+            <div class="card__circle" [ngClass]="theme">
+                <i class="fa fa-light" [ngClass]="iconClass"></i>
+            </div>
+            <div class="card__content">
+                <div class="card__value">{{value}}</div>
+                <div class="card__metric">{{title}}</div>
+                <a href="#">Ver más</a>
+            </div>
+        </div>
+    </ng-template>
+</app-white-card>

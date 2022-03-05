@@ -1,0 +1,82 @@
+@import '../../../assets/styles/variables.scss';
+
+.photo-picker {
+    margin-bottom: 24px;
+    display: grid;
+    grid-gap: 20px;
+    justify-items: center;
+
+    .photo { 
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+
+            &.selected {
+                .photo__img-container {
+                    position: relative;
+
+                    .selected-mask {
+                        background-color: $success-color;
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        display: block;
+                        opacity: 0.8;
+                    }
+
+                    .selected-icon {
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0;
+                        left: 0;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        text-align: center;
+                        color: $light-color;
+                        font-size: 24px;
+                    }
+                }
+            }
+        } 
+    
+        &__img-container {
+            width: 100%;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 10px;
+            overflow: hidden;
+    
+            img {
+                width: 100%;
+                display: block;
+            }
+
+            .selected-mask {
+                display: none;
+            }
+            
+            .selected-icon {
+                display: none;
+            }
+        }
+
+        &__btn-container {
+            width: 100%;
+
+            .btn {
+                text-align: center;
+                display: block;
+            }
+        }
+    }
+ }  

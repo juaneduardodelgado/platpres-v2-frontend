@@ -1,0 +1,50 @@
+<!-- <div class="pp-card__container">
+    <img src="../../../assets/images/card-sample.png">
+</div> -->
+
+<div class="pp-card__container real" [style.backgroundColor]="bgColor" [style.borderColor]="bgColor" #card>
+    <div class="pp-card__video" *ngIf="video && (video.previewSource || video.source)">
+        <video width="500" height="350" [src]="video.previewSource" autoplay loop [muted]="muted" #videoEl>
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="pp-card__logo">
+        <img *ngIf="logo && logo.path" [src]="logo.path">
+        <img *ngIf="logo && logo.previewSource" [src]="logo.previewSource">
+        <img *ngIf="!logo || (logo && !logo.path && !logo.previewSource)" src="../../../assets/images/adidas_logo.png">
+    </div>
+    <div class="pp-card__profile" *ngIf="!video">
+        <img *ngIf="profile && profile.path" [src]="profile.path">
+        <img *ngIf="profile && !profile.path" src="../../../assets/images/baseball--player.png">
+    </div>
+    <div class="pp-card__content" #content>
+        <div class="pp-card__name">{{profile.name}} {{profile.lastname}}</div>
+        <div class="pp-card__position" #position>{{profile.position}}</div>
+    </div>
+
+    <div class="pp-card__bottom-bar" [style.backgroundColor]="barColor" #bar>
+        <div class="pp-card__bottom-bar_container">
+            <div class="pp-card__bottom-bar_item" [ngStyle]="{'color': iconColor}">
+                <i class="fa fa-light fa-phone" aria-hidden="true"> </i>
+            </div>
+    
+            <div class="pp-card__bottom-bar_item" [ngStyle]="{'color': iconColor}">
+                <i class="fa fa-light fa-envelope" aria-hidden="true"> </i>
+            </div>
+    
+            <div class="pp-card__bottom-bar_item" [ngStyle]="{'color': iconColor}">
+                <i class="fa fa-light fa-podcast" aria-hidden="true"> </i>
+            </div>
+    
+            <div class="pp-card__bottom-bar_item" [ngStyle]="{'color': iconColor}">
+                <i class="fa fa-light fa-address-card" aria-hidden="true"> </i>
+            </div>
+
+            <div class="pp-card__bottom-bar_item sound muted-icon" [ngStyle]="{'color': iconColor}"
+                (click)="toggleSound($event)" *ngIf="video && (video.previewSource || video.source)">
+                <i class="fa fa-light fa-volume-up" aria-hidden="true" *ngIf="this.muted === 'muted'"> </i>
+                <i class="fa fa-light fa-volume-off" aria-hidden="true" *ngIf="this.muted !== 'muted'"> </i>
+            </div>
+        </div>
+    </div>
+</div>

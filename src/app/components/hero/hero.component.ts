@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoadingIndicatorService } from 'src/app/services/loading-indicator.service';
 
 @Component({
   selector: 'app-hero',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeroComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loadingIndicatorService: LoadingIndicatorService) { }
 
   ngOnInit(): void {
+  }
+
+  startFlow(): void {
+    this.loadingIndicatorService.start();
+    setTimeout(() => {
+      this.loadingIndicatorService.stop();
+    }, 5000);
   }
 
 }

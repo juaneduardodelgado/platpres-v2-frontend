@@ -1,0 +1,59 @@
+@import '../../../assets/styles/variables.scss';
+
+.tmpl-selector {
+
+    &__container {
+        display: grid;
+        grid-gap: 20px;
+        margin-bottom: 36px;
+    }
+
+    &__item {
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .selected-mask, .selected-icon {
+            display: none;
+            cursor: pointer;
+        }
+
+        &.selected {
+            .selected-mask {
+                background-color: $success-color;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                display: block;
+                opacity: 0.8;
+            }
+    
+            .selected-icon {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                text-align: center;
+                color: $light-color;
+                font-size: 24px;
+            }
+        }
+    }
+
+    &__item-select-btn {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+}

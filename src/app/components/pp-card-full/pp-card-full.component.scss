@@ -1,0 +1,24 @@
+.pp-card {
+    min-height: 262px;
+
+    &__container {
+        max-width: 355px;
+        border-radius: 15px;
+        overflow: hidden;
+        margin-bottom: 36px;
+        margin-top: -24px;
+        margin-left: -24px;
+        margin-right: -24px;
+        width: calc(100% + 48px);
+        max-width: unset;
+        max-height: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.small-margin {
+    margin-bottom: 16px;
+}

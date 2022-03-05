@@ -1,0 +1,76 @@
+@import '../../../assets/styles/variables.scss';
+
+:host {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+:host ::ng-deep app-pp-card {
+    cursor: pointer;
+}
+
+.tabs-container {
+    display: flex;
+    grid-gap: 16px;
+
+    .title {
+        cursor: pointer;
+        margin-bottom: 16px;
+
+        &.active {
+            border-bottom: 3px solid $complementary-color;
+            padding-bottom: 6px;    
+        }
+    }
+}
+
+.new-container {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.page-container .row {
+    grid-auto-rows: 1fr;
+}
+
+.card__circle {
+    cursor: pointer;
+    display: block;
+    border-radius: 100px;
+    width: 100px;
+    min-width: 100px;
+    height: 100px;
+    color: #FAFAFA;
+    text-align: center;
+    line-height: 100px;
+    font-size: 32px;
+    color: $light-color;
+    background: $gray-color;
+    cursor: pointer;
+}
+
+app-white-card {
+    min-height: 269px;
+
+    h3 {
+        text-align: center;
+        margin-top: -16px;
+    }
+
+    .buttons-container {
+        width: 100%;
+        display: flex;
+
+        .btn {
+            margin: 0 auto;
+        }
+    }
+}

@@ -1,8 +1,15 @@
+@import '../../../assets/styles/variables';
+
 :host {
   display: block;
-  padding: 4px;
 }
 
 img {
   width: 57px;
+}
+
+@media (max-width: $breakpoint-mobile) {
+  img {
+    width: 50px;
+  }
 }

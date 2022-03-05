@@ -1,3 +1,42 @@
-<p>home works!</p>
+<h3>Inicio</h3>
 
-<app-grid></app-grid>
+<div class="page-container">
+    <div class="row cols-1 cols-3-xl">
+        <app-metric-card theme="success" icon="check" value="25" title="Negocios exitosos"></app-metric-card>
+
+        <app-metric-card theme="action" icon="info-circle" value="12" title="Negocios pendientes"></app-metric-card>
+
+        <app-metric-card theme="error" icon="times" value="5" title="Negocios fallidos"></app-metric-card>
+    </div>
+    <div class="row cols-1 cols-2-xl">
+        <app-white-card>
+            <ng-template>
+                <div class="title">Tu tarjeta master</div>
+                <app-pp-card></app-pp-card>
+
+                <div class="buttons-container">
+                    <a [routerLink]="'/app'" class="btn btn--tertiary btn--large">
+                        Compartir
+                    </a>
+                    <a [routerLink]="'/app'" class="btn btn--secondary btn--large btn--strong">
+                        Invitar amigos
+                    </a>
+                </div>
+            </ng-template>
+        </app-white-card>
+
+        <app-white-card>
+            <ng-template>
+                <div class="title">Listado de clientes</div>
+                <div class="customer-list">
+
+                </div>
+                <div class="buttons-container">
+                    <a [routerLink]="'/app'" class="btn btn--secondary btn--large btn--strong">
+                        Ver más clientes
+                    </a>
+                </div>
+            </ng-template>
+        </app-white-card>
+    </div>
+</div>

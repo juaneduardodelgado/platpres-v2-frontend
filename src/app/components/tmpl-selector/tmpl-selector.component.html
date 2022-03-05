@@ -1,0 +1,14 @@
+<div class="tmpl-selector__container cols-2">
+    <div class="tmpl-selector__item" *ngFor="let tmpl of tmpls; let idx = index"
+        [ngClass]="{'selected': selectedIdx === idx}">
+        <img src="../../../assets/images/card-sample.png">
+
+        <a *ngIf="selectedIdx !== idx" class="btn btn--secondary btn--small tmpl-selector__item-select-btn"
+            (click)="selectTmpl(idx)">Seleccionar</a>
+
+        <div class="selected-mask" (click)="deselect()"></div>
+        <div class="selected-icon" (click)="deselect()">
+            <i class="fa fa-light fa-check" aria-hidden="true"> </i>
+        </div>
+    </div>
+</div>

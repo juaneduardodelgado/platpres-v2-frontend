@@ -1,0 +1,30 @@
+@import '../../../assets/styles/variables';
+
+:host {
+    box-sizing: border-box;
+}
+
+footer {
+    padding-left: 138px;
+    height: 50px;
+}
+
+.centered {
+  text-align: center;
+  padding: 0;
+} 
+
+@media (max-width: $breakpoint-tablet) {
+  footer {
+    padding-left: 68px;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  footer {
+    position: initial;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+  }
+}

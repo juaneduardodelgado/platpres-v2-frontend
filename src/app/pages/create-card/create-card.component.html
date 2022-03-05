@@ -1,0 +1,159 @@
+<h3>Crea tu tarjeta</h3>
+
+<div class="page-container page-wizard">
+    <div class="row cols-1">
+        <app-white-card>
+            <ng-template>
+                <form [formGroup]="heroForm" *ngIf="step === 1">
+                    <p>Por favor completa la siguiente información:</p>
+                    <label for="names">Nombre</label>
+                    <input type="text" id="name" name="name" placeholder="Ingresa tu nombre" formControlName="name">
+                    <div *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="name && name.errors && name.errors['required']">
+                            Nombre es requerido
+                        </div>
+                    </div>
+                    
+                    <label for="lnames">Apellidos</label>
+                    <input type="text" id="lnames" name="lnames" placeholder="Ingresa tu apellido" formControlName="lnames">
+
+                    <div *ngIf="lnames?.invalid && (lnames?.dirty || lnames?.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="lnames && lnames.errors && lnames.errors['required']">
+                            Apellidos son requeridos
+                        </div>
+                    </div>
+
+                    <label for="position">Cargo</label>
+                    <input type="text" id="position" name="position" placeholder="Qué cargo ocupas?" formControlName="position">
+
+                    <div *ngIf="position?.invalid && (position?.dirty || position?.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="position && position.errors && position.errors['required']">
+                            Cargo es requerido
+                        </div>
+                    </div>
+
+                    <label for="email">Coreo electrónico</label>
+                    <input type="text" id="email" name="email" placeholder="Ej: user@server.com" formControlName="email">
+
+                    <div *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="email && email.errors && email.errors['required']">
+                            Correo es requerido
+                        </div>
+                        <div *ngIf="email && email.errors && email.errors['email']">
+                            Campo debe ser un correo válido
+                        </div>
+                    </div>
+
+                    <label for="cellphone">Celular</label>
+                    <input type="number" id="cellphone" name="cellphone" placeholder="57 1234567890" formControlName="cellphone">
+
+                    <div *ngIf="cellphone?.invalid && (cellphone?.dirty || cellphone?.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="cellphone && cellphone.errors && cellphone.errors['required']">
+                            Celular es requerido
+                        </div>
+                    </div>
+
+                    <label for="website">Página web</label>
+                    <input type="text" id="website" name="website" placeholder="Ej: https://www.server.com" formControlName="website">
+
+                    <div *ngIf="website?.invalid && (website?.dirty || website?.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="website && website.errors && website.errors['required']">
+                            Página web es requerido
+                        </div>
+                    </div>
+                </form>
+
+                <form *ngIf="step === 2">
+                    <p>Por favor elige un avatar:</p>
+                    <app-photo-picker [photos]="avatars"
+                        (selectedPhoto)="avatarChanged($event)"></app-photo-picker>
+
+                    <app-upload-file title="Sube tu video"
+                    subtitle="Sube un video desde tu dispositivo"
+                    accept="video/mp4,video/x-m4v,video/*"
+                    (selectedFiles)="videoChanged($event)"></app-upload-file>
+                </form>
+
+                <form *ngIf="step === 3" #thirdForm>
+                    <p>A continuación puedes personalizar con tu logo y tu color:</p>
+
+                    <app-upload-file title="Sube tu logo"
+                    subtitle="Sube el logo que irá en tu tarjeta (Archivos PNG, JPG)"
+                    (selectedFiles)="logoChanged($event)"
+                    ></app-upload-file>
+
+                    <div class="color-previewer__container">
+                        <div class="color-picker__container">
+
+                            <h4>Color del fondo</h4>
+                            <div class="color-picker_block">
+                                <ngx-colors
+                                    [formControl]="colorBgFormControl"
+                                    ngx-colors-trigger></ngx-colors> 
+                                    {{colorBgFormControl.value}}
+                            </div>
+                            
+                            <h4>Color de los iconos</h4>
+                            <div class="color-picker_block">
+                                <ngx-colors
+                                    [formControl]="colorFormControl"
+                                    ngx-colors-trigger></ngx-colors> 
+                                    {{colorFormControl.value}}
+                            </div>
+
+                            <h4>Color de la barra</h4>
+                            <div class="color-picker_block">
+                                <ngx-colors
+                                    [formControl]="colorBarFormControl"
+                                    ngx-colors-trigger></ngx-colors> 
+                                    {{colorBarFormControl.value}}
+                            </div>
+                        </div>
+
+                        <div class="card-preview__container">
+                            <h4>Previsualización</h4>
+                            
+                            <app-pp-card [iconColor]="colorFormControl.value"
+                                [bgColor]="colorBgFormControl.value"
+                                [barColor]="colorBarFormControl.value"
+                                [logo]="uploadedLogo"
+                                [video]="uploadedVideo"
+                                [profile]="profile"></app-pp-card>
+                        </div>
+
+                    </div>
+                </form>
+
+                <form *ngIf="step === 4">
+                    <p>A continuación selecciona una de las siguientes plantillas:</p>
+                    <app-tmpl-selector></app-tmpl-selector>
+                </form>
+
+                <form *ngIf="step === 5">
+                    <p>Revisa y finaliza:</p>
+                    <app-pp-card [iconColor]="colorFormControl.value"
+                                [bgColor]="colorBgFormControl.value"
+                                [barColor]="colorBarFormControl.value"
+                                [logo]="uploadedLogo"
+                                [video]="uploadedVideo"
+                                [profile]="profile"></app-pp-card>
+                </form>
+
+                <div class="buttons-container">
+                    <a class="btn btn--tertiary btn--large"
+                        (click)="continue()">
+                        <span *ngIf="step < 5">Continuar</span>
+                        <span *ngIf="step === 5">Guardar y finalizar</span>
+                        <i class="fa fa-light fa-arrow-right" aria-hidden="true"> </i>
+                    </a>
+                </div>
+            </ng-template>
+        </app-white-card>
+    </div>
+</div>

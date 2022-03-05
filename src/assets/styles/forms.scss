@@ -1,0 +1,42 @@
+@import './variables';
+
+input {
+    width: 100%;
+    padding: 12px 12px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 15px;
+    letter-spacing: 0.14px;
+    color: $dark-color;
+    border: 1px solid $lighter-gray-color;
+    margin-bottom: 24px;
+    border-radius: 5px;
+}
+
+label {
+    font-size: 14px;
+    line-height: 15px;
+    letter-spacing: 0.14px;
+    color: $dark-color;
+}
+
+form {
+    margin-top: 32px;
+} 
+
+app-white-card form {
+    margin-top: 16px;
+}
+
+.alert {
+    margin-bottom: 24px;
+    margin-top: 6px;
+    font-size: 13px;
+    color: red;
+}
+
+input + .alert {
+    margin-bottom: 10px;
+    margin-top: -20px;
+}

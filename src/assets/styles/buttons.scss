@@ -1,0 +1,93 @@
+@import './variables';
+
+$button-border-radius: 8px;
+$button-font-size: 14px;
+$button-font-family: 'Inter', 'Arial', sans-serif;
+$button-padding: 12px 16px;
+$button-padding-small: 8px 12px;
+$button-padding-large: 16px 24px;
+
+$button-base-color: $dark-color;
+$button-base-bg: $primary-color;
+
+$button-primary-bg: $primary-color;
+$button-secondary-bg: $light-color;
+$button-tertiary-bg: $dark-color;
+
+$button-primary-hover-color: $secondary-color;
+$button-secondary-hover-color: $dark-color;
+$button-tertiary-hover-color: $secondary-color;
+
+$button-secondary-border: 1px solid $lighter-gray-color;
+
+// --- mixins ------------------------------------------------------------------
+
+@mixin bem-button($name, $color, $bg, $hover-color, $border) {
+	.btn--#{$name} {
+		background-color: $bg;
+        color: $color;
+		border: $border;
+		@include bem-button-hover($hover-color, $bg);
+	}
+}
+
+@mixin bem-button-hover($color, $hover-font-color) {
+	&:not(.is-disabled):hover {
+		background-color: $color;
+        color: $hover-font-color;
+
+        i {
+            color: $hover-font-color;
+        }
+	}
+}
+
+@mixin bem-button-size($name, $font-size, $padding) {
+	.btn--#{$name} {
+		font-size: $font-size;
+        padding: $padding;
+	}
+}
+
+// --- button ------------------------------------------------------------------
+
+.btn {
+	color: $button-base-color;  
+	background-color: $button-base-bg;
+    padding: $button-padding;
+	display: inline-block;
+	text-decoration: none;
+	border-radius: $button-border-radius;
+	font: $button-font-size $button-font-family;
+	border: none;
+	cursor: pointer;
+	transition: background-color .2s, color .2s, border-color .2s;
+
+    i {
+        color: $secondary-color;
+        padding-left: 16px;
+    }
+
+	@include bem-button-hover($button-base-bg, $button-base-color);
+
+	&.is-disabled {
+		background-color: #ccc;
+		cursor: default;
+	}
+}
+
+// --- button: sizes -----------------------------------------------------------
+
+@include bem-button-size('small', 12px, $button-padding-small);
+@include bem-button-size('large', 16px, $button-padding-large);
+
+// --- button: variants --------------------------------------------------------
+
+@include bem-button('primary', $button-base-color, $button-primary-bg, $button-primary-hover-color, 'none');
+@include bem-button('secondary', $button-base-color, $button-secondary-bg, $button-secondary-hover-color, $button-secondary-border);
+@include bem-button('tertiary', $light-color, $button-tertiary-bg, $button-tertiary-hover-color, 'none');
+
+
+.btn--strong {
+	font-weight: bold;
+} 

@@ -1,0 +1,19 @@
+@import './variables';
+
+.badge {
+    color: $dark-color;
+    background-color: $success-color;
+    padding: 12px 16px;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 8px;
+    font: 14px "Inter", "Arial", sans-serif;
+    border: none;
+    cursor: default;
+    font-weight: bold;
+}
+
+.badge.badge--small {
+    font-size: 12px;
+    padding: 8px 12px;
+}

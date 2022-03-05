@@ -1,0 +1,19 @@
+<div class="upload-file__container">
+    <h4>{{title}}</h4>
+    <p>{{subtitle}}</p>
+
+    <div class="upload-file__preview" *ngIf="previewSource && isImage()">
+        <img [src]="previewSource">
+    </div>
+
+    <div class="upload-file__preview-video" *ngIf="previewSource && isVideo()">
+        <video width="500" height="350" [src]="previewSource" controls autoplay>
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <a class="btn btn--secondary" (click)="file.click()" *ngIf="file.files && file.files.length === 0">Examinar</a>
+    <a class="btn btn--secondary" (click)="deleteFiles()" *ngIf="file.files && file.files.length > 0">Eliminar</a>
+
+    <input style="display: none" type="file" name="filename" (change)="fileSelected()" [accept]="acceptedExtensions" #file>
+</div>

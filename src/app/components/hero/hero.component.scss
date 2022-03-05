@@ -3,12 +3,13 @@
 
 :host {
   display: block;
-  height: 600px;
+  min-height: 600px;
 }
 
 .hero {
-  height: 100%;
-  display: block;
+  display: flex;
+  justify-content: flex-end;
+  align-items: stretch;
   position: relative;
 
   &__background {
@@ -55,11 +56,15 @@
 
 @media (max-width: $breakpoint-mobile) {
   .hero {
+    vertical-align: bottom;
+    min-height: 656px;
+    align-items: end;
+
     &__content {
       float: none;
       width: calc(100% - 20px);
-      min-height: 50%;
-      top: calc(50% - 10px);
+      min-height: 60%;
+      top: calc(40% - 10px);
       margin: 10px;
       padding: 28px 21px;
     }

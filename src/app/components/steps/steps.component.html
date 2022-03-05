@@ -1,0 +1,24 @@
+<div class="steps">
+    <div class="steps__back-button">
+        <a (click)="back()">
+            <i class="fa fa-light fa-arrow-left" aria-hidden="true"> </i>
+            Regresar
+        </a>
+    </div>
+    <div class="step" *ngFor="let step of steps; let idx = index"
+        [ngClass]="{'active': currentStep === (idx + 1),
+            'done': currentStep > (idx + 1)}"
+            (click)="emitStep(idx)">
+        <div class="step__container">
+            <div class="step__circle">
+                <div class="step__circle-mask"></div>
+                <span *ngIf="currentStep <= (idx + 1)">{{idx + 1}}</span>
+                <i class="fa fa-light fa-check" *ngIf="currentStep > (idx + 1)"></i>
+            </div>
+            <div class="step__content">
+                <div class="step__value">{{step}}</div>
+            </div>
+        </div>
+        <div class="step__divisor"></div>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<h3>Tarjetero</h3>
+
+<div class="description">
+        Estas son las tarjetas que han sido compartidas contigo.
+</div>
+
+<div class="page-container">
+    <div class="row cols-1 cols-3-xl">
+        <app-white-card *ngFor="let card of cards">
+            <ng-template>
+                <app-pp-card-full margin="small"></app-pp-card-full>
+                <div class="buttons-container">
+                    <a [routerLink]="'/app'" class="btn btn--secondary btn--medium btn--strong">
+                        Ver detalles
+                    </a>
+                </div>
+            </ng-template>
+        </app-white-card>
+    </div>
+</div>

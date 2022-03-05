@@ -1,0 +1,16 @@
+<div class="photo-picker cols-2 cols-3-md cols-4-lg cols-5-xl">
+    <div class="photo__container" *ngFor="let photo of photos; let idx = index"
+        [ngClass]="{'selected': selectedIdx === idx}">
+        <div class="photo__img-container">
+            <img [src]="photo.path">
+            <div class="selected-mask"></div>
+            <div class="selected-icon">
+                <i class="fa fa-light fa-check" aria-hidden="true"> </i>
+            </div>
+        </div>
+        <div class="photo__btn-container">
+            <a class="btn btn--tertiary" (click)="selectPhoto(idx)"
+            [ngClass]="{'is-disabled': selectedIdx === idx}">Seleccionar</a>
+        </div>
+    </div>
+</div>

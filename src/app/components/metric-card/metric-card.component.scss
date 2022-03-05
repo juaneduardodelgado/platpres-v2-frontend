@@ -1,0 +1,63 @@
+@import '../../../assets/styles/variables';
+
+.card {
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        align-content: flex-start;
+        justify-content: flex-start;
+        align-items: flex-start;
+        grid-gap: 20px;
+    }
+
+    &__value {
+        font-size: 40px;
+        line-height: 40px;
+        letter-spacing: .32px;
+        color: $dark-color;
+        font-weight: 500;
+        margin-bottom: 16px;
+        margin-top: 16px;
+    }
+
+    &__metric {
+        margin-bottom: 24px;
+    }
+
+    &__circle {
+        display: block;
+        border-radius: 60px;
+        width: 60px;
+        min-width: 60px;
+        height: 60px;
+        color: $light-color;
+        text-align: center;
+        line-height: 60px;
+        font-size: 20px;
+    
+        &.success {
+            background: $success-color;
+        }
+    
+        &.action {
+            background: $action-color;
+        }
+    
+        &.error {
+            background: $error-color;
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+        height: 100%;
+        margin-bottom: 24px;
+
+        a {
+            font-weight: 600;
+            font-size: 16px;
+            text-decoration: none;
+        }
+    }
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+  <g id="spinner" transform="translate(-3 -3)">
+    <path id="Trazado_9" data-name="Trazado 9" d="M18,28.5A10.5,10.5,0,1,0,7.5,18,10.5,10.5,0,0,0,18,28.5ZM18,33A15,15,0,1,0,3,18,15,15,0,0,0,18,33Z" fill="#3a5081" opacity="0.2"/>
+    <path id="Trazado_10" data-name="Trazado 10" d="M3,18A15,15,0,0,1,18,3V7.5A10.5,10.5,0,0,0,7.5,18Z" fill="#3a5081"/>
+  </g>
+</svg>

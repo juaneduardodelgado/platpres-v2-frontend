@@ -1,0 +1,36 @@
+
+.upload-file {
+    &__preview {
+        max-width: 20%;
+        overflow: hidden;
+        margin-bottom: 20px;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__preview-video {
+        overflow: hidden;
+        margin-bottom: 20px;
+    }
+
+    &__container {
+        background: #eee;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 24px;
+        margin-bottom: 36px;
+
+        h4 {
+            margin-bottom: 0;
+        }
+
+        p {
+            margin-top: 0px;
+            margin-bottom: 24px;
+        }
+    }
+} 
